@@ -1,0 +1,164 @@
+5042  execve("./window", ["./window"], 0x7ffd2cabeaf8 /* 83 vars */) = 0
+5042  brk(NULL)                         = 0x564beb0d7000
+5042  access("/etc/ld.so.preload", R_OK) = -1 ENOENT (No such file or directory)
+5042  openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+5042  fstat(3, {st_mode=S_IFREG|0644, st_size=154699, ...}) = 0
+5042  mmap(NULL, 154699, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f3947861000
+5042  close(3)                          = 0
+5042  mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f394785f000
+5042  openat(AT_FDCWD, "/usr/lib/libSDL3.so.0", O_RDONLY|O_CLOEXEC) = 3
+5042  read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\0\0\0\0\0\0\0\0"..., 832) = 832
+5042  fstat(3, {st_mode=S_IFREG|0755, st_size=2671184, ...}) = 0
+5042  mmap(NULL, 2696328, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f3947400000
+5042  mmap(0x7f3947415000, 1921024, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x15000) = 0x7f3947415000
+5042  mmap(0x7f39475ea000, 569344, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1ea000) = 0x7f39475ea000
+5042  mmap(0x7f3947675000, 94208, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x275000) = 0x7f3947675000
+5042  mmap(0x7f394768c000, 25736, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7f394768c000
+5042  close(3)                          = 0
+5042  openat(AT_FDCWD, "/usr/lib/libstdc++.so.6", O_RDONLY|O_CLOEXEC) = 3
+5042  read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\0\0\0\0\0\0\0\0"..., 832) = 832
+5042  fstat(3, {st_mode=S_IFREG|0755, st_size=22051960, ...}) = 0
+5042  mmap(NULL, 2641984, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f3947000000
+5042  mmap(0x7f3947097000, 1363968, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x97000) = 0x7f3947097000
+5042  mmap(0x7f39471e4000, 589824, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1e4000) = 0x7f39471e4000
+5042  mmap(0x7f3947274000, 57344, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x274000) = 0x7f3947274000
+5042  mmap(0x7f3947282000, 12352, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7f3947282000
+5042  close(3)                          = 0
+5042  openat(AT_FDCWD, "/usr/lib/libm.so.6", O_RDONLY|O_CLOEXEC) = 3
+5042  read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\0\0\0\0\0\0\0\0"..., 832) = 832
+5042  fstat(3, {st_mode=S_IFREG|0755, st_size=1010008, ...}) = 0
+5042  mmap(NULL, 1012040, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f3947767000
+5042  mmap(0x7f3947776000, 548864, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0xf000) = 0x7f3947776000
+5042  mmap(0x7f39477fc000, 397312, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x95000) = 0x7f39477fc000
+5042  mmap(0x7f394785d000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0xf5000) = 0x7f394785d000
+5042  close(3)                          = 0
+5042  openat(AT_FDCWD, "/usr/lib/libgcc_s.so.1", O_RDONLY|O_CLOEXEC) = 3
+5042  read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\0\0\0\0\0\0\0\0"..., 832) = 832
+5042  fstat(3, {st_mode=S_IFREG|0644, st_size=916136, ...}) = 0
+5042  mmap(NULL, 184808, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f3947739000
+5042  mmap(0x7f394773d000, 147456, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x4000) = 0x7f394773d000
+5042  mmap(0x7f3947761000, 16384, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x28000) = 0x7f3947761000
+5042  mmap(0x7f3947765000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x2b000) = 0x7f3947765000
+5042  close(3)                          = 0
+5042  openat(AT_FDCWD, "/usr/lib/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
+5042  read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0`v\2\0\0\0\0\0"..., 832) = 832
+5042  pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+5042  fstat(3, {st_mode=S_IFREG|0755, st_size=2014520, ...}) = 0
+5042  pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+5042  mmap(NULL, 2038904, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f3946e0e000
+5042  mmap(0x7f3946e32000, 1511424, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x24000) = 0x7f3946e32000
+5042  mmap(0x7f3946fa3000, 323584, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x195000) = 0x7f3946fa3000
+5042  mmap(0x7f3946ff2000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1e3000) = 0x7f3946ff2000
+5042  mmap(0x7f3946ff8000, 31864, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7f3946ff8000
+5042  close(3)                          = 0
+5042  mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f3947737000
+5042  mmap(NULL, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f3947734000
+5042  arch_prctl(ARCH_SET_FS, 0x7f3947734780) = 0
+5042  set_tid_address(0x7f3947734a50)   = 5042
+5042  set_robust_list(0x7f3947734a60, 24) = 0
+5042  rseq(0x7f39477346a0, 0x20, 0, 0x53053053) = 0
+5042  mprotect(0x7f3946ff2000, 16384, PROT_READ) = 0
+5042  mprotect(0x7f3947765000, 4096, PROT_READ) = 0
+5042  mprotect(0x7f394785d000, 4096, PROT_READ) = 0
+5042  mprotect(0x7f3947274000, 53248, PROT_READ) = 0
+5042  mprotect(0x7f3947675000, 49152, PROT_READ) = 0
+5042  mprotect(0x564bc7ef4000, 4096, PROT_READ) = 0
+5042  mprotect(0x7f39478c2000, 8192, PROT_READ) = 0
+5042  prlimit64(0, RLIMIT_STACK, NULL, {rlim_cur=8192*1024, rlim_max=RLIM64_INFINITY}) = 0
+5042  munmap(0x7f3947861000, 154699)    = 0
+5042  futex(0x7f39472826bc, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+5042  getrandom("\xb1\x3e\xb4\xa3\x63\x7a\x0d\x66", 8, GRND_NONBLOCK) = 8
+5042  brk(NULL)                         = 0x564beb0d7000
+5042  brk(0x564beb0f8000)               = 0x564beb0f8000
+5042  openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+5042  fstat(3, {st_mode=S_IFREG|0644, st_size=154699, ...}) = 0
+5042  mmap(NULL, 154699, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f3947861000
+5042  close(3)                          = 0
+5042  openat(AT_FDCWD, "/usr/lib/libdbus-1.so.3", O_RDONLY|O_CLOEXEC) = 3
+5042  read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\0\0\0\0\0\0\0\0"..., 832) = 832
+5042  fstat(3, {st_mode=S_IFREG|0755, st_size=334008, ...}) = 0
+5042  mmap(NULL, 336624, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f39476e1000
+5042  mmap(0x7f39476ef000, 200704, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0xe000) = 0x7f39476ef000
+5042  mmap(0x7f3947720000, 69632, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x3f000) = 0x7f3947720000
+5042  mmap(0x7f3947731000, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x4f000) = 0x7f3947731000
+5042  close(3)                          = 0
+5042  openat(AT_FDCWD, "/usr/lib/libsystemd.so.0", O_RDONLY|O_CLOEXEC) = 3
+5042  read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\0\0\0\0\0\0\0\0"..., 832) = 832
+5042  fstat(3, {st_mode=S_IFREG|0755, st_size=1185128, ...}) = 0
+5042  mmap(NULL, 1190152, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f39472dd000
+5042  mmap(0x7f39472f1000, 786432, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x14000) = 0x7f39472f1000
+5042  mmap(0x7f39473b1000, 262144, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0xd4000) = 0x7f39473b1000
+5042  mmap(0x7f39473f1000, 57344, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x113000) = 0x7f39473f1000
+5042  mmap(0x7f39473ff000, 2312, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7f39473ff000
+5042  close(3)                          = 0
+5042  openat(AT_FDCWD, "/usr/lib/libcap.so.2", O_RDONLY|O_CLOEXEC) = 3
+5042  read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0 |\0\0\0\0\0\0"..., 832) = 832
+5042  fstat(3, {st_mode=S_IFREG|0755, st_size=43064, ...}) = 0
+5042  mmap(NULL, 45128, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f39476d5000
+5042  mmap(0x7f39476d8000, 20480, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x3000) = 0x7f39476d8000
+5042  mmap(0x7f39476dd000, 8192, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x8000) = 0x7f39476dd000
+5042  mmap(0x7f39476df000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x9000) = 0x7f39476df000
+5042  close(3)                          = 0
+5042  mprotect(0x7f39476df000, 4096, PROT_READ) = 0
+5042  mprotect(0x7f39473f1000, 53248, PROT_READ) = 0
+5042  mprotect(0x7f3947731000, 8192, PROT_READ) = 0
+5042  prctl(PR_CAPBSET_READ, CAP_MAC_OVERRIDE) = 1
+5042  prctl(PR_CAPBSET_READ, 0x30 /* CAP_??? */) = -1 EINVAL (Invalid argument)
+5042  prctl(PR_CAPBSET_READ, CAP_CHECKPOINT_RESTORE) = 1
+5042  prctl(PR_CAPBSET_READ, 0x2c /* CAP_??? */) = -1 EINVAL (Invalid argument)
+5042  prctl(PR_CAPBSET_READ, 0x2a /* CAP_??? */) = -1 EINVAL (Invalid argument)
+5042  prctl(PR_CAPBSET_READ, 0x29 /* CAP_??? */) = -1 EINVAL (Invalid argument)
+5042  munmap(0x7f3947861000, 154699)    = 0
+5042  getresuid([1000], [1000], [1000]) = 0
+5042  getresgid([1000], [1000], [1000]) = 0
+5042  socket(AF_UNIX, SOCK_STREAM|SOCK_CLOEXEC, 0) = 3
+5042  connect(3, {sa_family=AF_UNIX, sun_path="/run/user/1000/bus"}, 20) = 0
+5042  fcntl(3, F_GETFL)                 = 0x2 (flags O_RDWR)
+5042  fcntl(3, F_SETFL, O_RDWR|O_NONBLOCK) = 0
+5042  geteuid()                         = 1000
+5042  getsockname(3, {sa_family=AF_UNIX}, [128 => 2]) = 0
+5042  poll([{fd=3, events=POLLOUT}], 1, 0) = 1 ([{fd=3, revents=POLLOUT}])
+5042  sendto(3, "\0", 1, MSG_NOSIGNAL, NULL, 0) = 1
+5042  sendto(3, "AUTH EXTERNAL 31303030\r\n", 24, MSG_NOSIGNAL, NULL, 0) = 24
+5042  poll([{fd=3, events=POLLIN}], 1, -1) = 1 ([{fd=3, revents=POLLIN}])
+5042  read(3, "OK 10e298e9d6a314dbb0fa817d92dd1"..., 2048) = 37
+5042  poll([{fd=3, events=POLLOUT}], 1, -1) = 1 ([{fd=3, revents=POLLOUT}])
+5042  sendto(3, "NEGOTIATE_UNIX_FD\r\n", 19, MSG_NOSIGNAL, NULL, 0) = 19
+5042  poll([{fd=3, events=POLLIN}], 1, -1) = 1 ([{fd=3, revents=POLLIN}])
+5042  read(3, "AGREE_UNIX_FD\r\n", 2048) = 15
+5042  poll([{fd=3, events=POLLOUT}], 1, -1) = 1 ([{fd=3, revents=POLLOUT}])
+5042  sendto(3, "BEGIN\r\n", 7, MSG_NOSIGNAL, NULL, 0) = 7
+5042  poll([{fd=3, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=3, revents=POLLOUT}])
+5042  sendmsg(3, {msg_name=NULL, msg_namelen=0, msg_iov=[{iov_base="l\1\0\1\0\0\0\0\1\0\0\0n\0\0\0\1\1o\0\25\0\0\0/org/fre"..., iov_len=128}, {iov_base="", iov_len=0}], msg_iovlen=2, msg_controllen=0, msg_flags=0}, MSG_NOSIGNAL) = 128
+5042  poll([{fd=3, events=POLLIN}], 1, 25000) = 1 ([{fd=3, revents=POLLIN}])
+5042  recvmsg(3, {msg_name=NULL, msg_namelen=0, msg_iov=[{iov_base="l\2\1\1\n\0\0\0\377\377\377\377?\0\0\0\5\1u\0\1\0\0\0\7\1s\0\24\0\0\0"..., iov_len=2048}], msg_iovlen=1, msg_controllen=0, msg_flags=MSG_CMSG_CLOEXEC}, MSG_CMSG_CLOEXEC) = 260
+5042  recvmsg(3, {msg_namelen=0}, MSG_CMSG_CLOEXEC) = -1 EAGAIN (Resource temporarily unavailable)
+5042  socket(AF_UNIX, SOCK_STREAM|SOCK_CLOEXEC, 0) = 4
+5042  connect(4, {sa_family=AF_UNIX, sun_path="/run/dbus/system_bus_socket"}, 29) = 0
+5042  fcntl(4, F_GETFL)                 = 0x2 (flags O_RDWR)
+5042  fcntl(4, F_SETFL, O_RDWR|O_NONBLOCK) = 0
+5042  geteuid()                         = 1000
+5042  getsockname(4, {sa_family=AF_UNIX}, [128 => 2]) = 0
+5042  poll([{fd=4, events=POLLOUT}], 1, 0) = 1 ([{fd=4, revents=POLLOUT}])
+5042  sendto(4, "\0", 1, MSG_NOSIGNAL, NULL, 0) = 1
+5042  sendto(4, "AUTH EXTERNAL 31303030\r\n", 24, MSG_NOSIGNAL, NULL, 0) = 24
+5042  poll([{fd=4, events=POLLIN}], 1, -1) = 1 ([{fd=4, revents=POLLIN}])
+5042  read(4, "OK 795db38b5c382e943d5f2513fa0f9"..., 2048) = 37
+5042  poll([{fd=4, events=POLLOUT}], 1, -1) = 1 ([{fd=4, revents=POLLOUT}])
+5042  sendto(4, "NEGOTIATE_UNIX_FD\r\n", 19, MSG_NOSIGNAL, NULL, 0) = 19
+5042  poll([{fd=4, events=POLLIN}], 1, -1) = 1 ([{fd=4, revents=POLLIN}])
+5042  read(4, "AGREE_UNIX_FD\r\n", 2048) = 15
+5042  poll([{fd=4, events=POLLOUT}], 1, -1) = 1 ([{fd=4, revents=POLLOUT}])
+5042  sendto(4, "BEGIN\r\n", 7, MSG_NOSIGNAL, NULL, 0) = 7
+5042  poll([{fd=4, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=4, revents=POLLOUT}])
+5042  sendmsg(4, {msg_name=NULL, msg_namelen=0, msg_iov=[{iov_base="l\1\0\1\0\0\0\0\1\0\0\0n\0\0\0\1\1o\0\25\0\0\0/org/fre"..., iov_len=128}, {iov_base="", iov_len=0}], msg_iovlen=2, msg_controllen=0, msg_flags=0}, MSG_NOSIGNAL) = 128
+5042  poll([{fd=4, events=POLLIN}], 1, 25000) = 1 ([{fd=4, revents=POLLIN}])
+5042  recvmsg(4, {msg_name=NULL, msg_namelen=0, msg_iov=[{iov_base="l\2\1\1\n\0\0\0\377\377\377\377?\0\0\0\5\1u\0\1\0\0\0\7\1s\0\24\0\0\0"..., iov_len=2048}], msg_iovlen=1, msg_controllen=0, msg_flags=MSG_CMSG_CLOEXEC}, MSG_CMSG_CLOEXEC) = 260
+5042  recvmsg(4, {msg_namelen=0}, MSG_CMSG_CLOEXEC) = -1 EAGAIN (Resource temporarily unavailable)
+5042  rt_sigaction(SIGINT, NULL, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+5042  rt_sigaction(SIGINT, {sa_handler=0x7f3947454630, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f3946e4bcd0}, NULL, 8) = 0
+5042  rt_sigaction(SIGTERM, NULL, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+5042  rt_sigaction(SIGTERM, {sa_handler=0x7f3947454630, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f3946e4bcd0}, NULL, 8) = 0
+5042  write(2, "SDL_Init failed! SDL Error: \n", 29) = 29
+5042  exit_group(1)                     = ?
+5042  +++ exited with 1 +++
