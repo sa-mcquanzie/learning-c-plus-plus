@@ -1,4 +1,4 @@
-#include "entity.h"
+#include "entity.hpp"
 #include <SDL3/SDL_render.h>
 #include <cmath>
 #include <string>

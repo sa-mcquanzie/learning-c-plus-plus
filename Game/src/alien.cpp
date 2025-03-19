@@ -1,6 +1,5 @@
-#include "canvas.h"
-#include "config.h"
-#include "entity.h"
+#include "canvas.hpp"
+#include "entity.hpp"
 #include <SDL3/SDL_stdinc.h>
 #include <SDL3/SDL_timer.h>
 #include <cmath>
@@ -8,50 +7,117 @@
 
 Alien::Alien(
   SDL_Renderer * renderer,
+  AlienVariant variant,
   float x,
   float y
 ): Entity(renderer, x, y)  {
   this->entity_type = EntityType::Alien;
   this->renderer = renderer;
+  this->variant = variant;
   this->x = x;
   this->y = y;
   this->visible = true;
   this->colour = Colour::Green;
-  this->w = 11.0f;
+  if (this->variant == AlienVariant::Octopus) { this->w = 12.0f; }
+  if (this->variant == AlienVariant::Crab) { this->w = 11.0f; }
+  if (this->variant == AlienVariant::Squid) { this->w = 8.0f; }
   this->h = 8.0f;
-  this->speed = 5.0f;
-  this->hitbox = {this->x, this->y, this->w * 5, this->h * 5};
+  this->speed = 2.0f;
+  this->hitbox = {
+    this->x,
+    this->y,
+    this->w * Canvas::Pixel_Size,
+    this->h * Canvas::Pixel_Size
+  };
   this->sprite_current_frame = 0;
   this->sprite_total_frames = 2;
   this->animation_rate = 1000;
   this->last_animated = SDL_GetTicks();
+  this->x_min = this->x - 100.0f;
+  this->x_max = this->x + ((11 * Canvas::Pixel_Size) + 100.0f) - 5;
+  this->y_max = this->y + (10 * Canvas::Pixel_Size);
+  this->phase = AlienPhase::Strafing;
+  this->direction = -1;
+  this->can_fire = false;
+  this->should_fire = false;
 
-  int directions[2] = {1, -1};
-  this->direction = directions[rand() % 2];
+  if (this->variant == AlienVariant::Squid) {
+    std::vector<int> frame1 = {
+       0,  0,  0, 10, 10,  0,  0,  0,
+       0,  0, 10, 10, 10, 10,  0,  0,
+       0, 10, 10, 10, 10, 10, 10,  0,
+      10, 10,  0, 10, 10,  0, 10, 10,
+      10, 10, 10, 10, 10, 10, 10, 10,
+       0, 10,  0, 10, 10,  0, 10,  0,
+      10,  0,  0,  0,  0,  0,  0, 10,
+       0, 10,  0,  0,  0,  0, 10,  0,
+    };
+  
+    std::vector<int> frame2 = {
+       0,  0,  0, 10, 10,  0,  0,  0,
+       0,  0, 10, 10, 10, 10,  0,  0,
+       0, 10, 10, 10, 10, 10, 10,  0,
+      10, 10,  0, 10, 10,  0, 10, 10,
+      10, 10, 10, 10, 10, 10, 10, 10,
+       0,  0, 10,  0,  0, 10,  0,  0,
+       0, 10,  0, 10, 10,  0, 10,  0,
+      10,  0, 10,  0,  0, 10,  0, 10,
+    };
+  
+    this->sprite = {frame1, frame2};
+  }
 
-  std::vector<int> frame1 = {
-    0,0,6,0,0,0,0,0,6,0,0,
-    0,0,0,6,0,0,0,6,0,0,0,
-    0,0,6,6,6,6,6,6,6,0,0,
-    0,6,6,0,6,6,6,0,6,6,0,
-    6,6,6,6,6,6,6,6,6,6,6,
-    6,0,6,6,6,6,6,6,6,0,6,
-    6,0,6,0,0,0,0,0,6,0,6,
-    0,0,0,6,6,0,6,6,0,0,0,
-  };
+  if (this->variant == AlienVariant::Crab) {
+    std::vector<int> frame1 = {
+      0,0,6,0,0,0,0,0,6,0,0,
+      0,0,0,6,0,0,0,6,0,0,0,
+      0,0,6,6,6,6,6,6,6,0,0,
+      0,6,6,0,6,6,6,0,6,6,0,
+      6,6,6,6,6,6,6,6,6,6,6,
+      6,0,6,6,6,6,6,6,6,0,6,
+      6,0,6,0,0,0,0,0,6,0,6,
+      0,0,0,6,6,0,6,6,0,0,0,
+    };
+  
+    std::vector<int> frame2 = {
+      0,0,6,0,0,0,0,0,6,0,0,
+      6,0,0,6,0,0,0,6,0,0,6,
+      6,0,6,6,6,6,6,6,6,0,6,
+      6,6,6,0,6,6,6,0,6,6,6,
+      6,6,6,6,6,6,6,6,6,6,6,
+      0,0,6,6,6,6,6,6,6,0,0,
+      0,0,6,0,0,0,0,0,6,0,0,
+      0,6,0,0,0,0,0,0,0,6,0,
+    };
+  
+    this->sprite = {frame1, frame2};
+  }
 
-  std::vector<int> frame2 = {
-    0,0,6,0,0,0,0,0,6,0,0,
-    6,0,0,6,0,0,0,6,0,0,6,
-    6,0,6,6,6,6,6,6,6,0,6,
-    6,6,6,0,6,6,6,0,6,6,6,
-    6,6,6,6,6,6,6,6,6,6,6,
-    0,0,6,6,6,6,6,6,6,0,0,
-    0,0,6,0,0,0,0,0,6,0,0,
-    0,6,0,0,0,0,0,0,0,6,0,
-  };
-
-  this->sprite = {frame1, frame2};
+  if (this->variant == AlienVariant::Octopus) {
+    std::vector<int> frame1 = {
+      0,0,0,0,3,3,3,3,0,0,0,0,
+      0,3,3,3,3,3,3,3,3,3,3,0,
+      3,3,3,3,3,3,3,3,3,3,3,3,
+      3,3,3,0,0,3,3,0,0,3,3,3,
+      3,3,3,3,3,3,3,3,3,3,3,3,
+      0,0,0,3,3,0,0,3,3,0,0,0,
+      0,0,3,3,0,3,3,0,3,3,0,0,
+      3,3,0,0,0,0,0,0,0,0,3,3,
+    };
+  
+    std::vector<int> frame2 = {
+      0,0,0,0,3,3,3,3,0,0,0,0,
+      0,3,3,3,3,3,3,3,3,3,3,0,
+      3,3,3,3,3,3,3,3,3,3,3,3,
+      3,3,3,0,0,3,3,0,0,3,3,3,
+      3,3,3,3,3,3,3,3,3,3,3,3,
+      0,0,3,3,3,0,0,3,3,3,0,0,
+      0,3,3,0,0,3,3,0,0,3,3,0,
+      0,0,3,3,0,0,0,0,3,3,0,0,
+    };
+  
+    this->sprite = {frame1, frame2};
+  } 
 };
 
 Alien::~Alien() {};
@@ -101,17 +167,34 @@ void Alien::show() {
 };
 
 void Alien::move() {
-  if (
-    (this->direction == 1 && this->x > (Window::F_Width - (this->w * Canvas::Pixel_Size))) ||
-    (this->direction == -1 && this->x == 0)
-  ) {
-    this->direction = -this->direction;
+  if (this->phase == AlienPhase::Strafing) {
+    if (this->direction == -1) {
+      if (this->x <= this->x_min) {
+        this->phase = AlienPhase::Advancing;
+        this->direction = 1;
+      } else {
+        this->x += this->speed * this->direction;
+      }
+    } else {
+      if (this->direction == 1) {
+        if (this->x >= this->x_max) {
+          this->phase = AlienPhase::Advancing;
+          this->direction = -1;
+        } else {
+          this->x += this->speed * this->direction;
+        }
+      }
+    }
   }
 
-  float x_velocity = this->speed * this->direction;
-
-  this->x += x_velocity;
-  this->y += 1;
+  if (this->phase == AlienPhase::Advancing) {
+    if (this->y <= this->y_max) {
+      this->y += 2;
+    } else {
+      this->y_max += 10 * Canvas::Pixel_Size;
+      this->phase = AlienPhase::Strafing;
+    }
+  }
 
   this->update_hitbox();
 };

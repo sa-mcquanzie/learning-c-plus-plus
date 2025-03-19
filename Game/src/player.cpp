@@ -1,9 +1,9 @@
 #include <cmath>
 #include <iterator>
-#include "canvas.h"
-#include "colour.h"
-#include "config.h"
-#include "entity.h"
+#include "canvas.hpp" 
+#include "colour.hpp"
+#include "config.hpp"
+#include "entity.hpp"
 
 
 Player::Player(
@@ -16,10 +16,17 @@ Player::Player(
   this->w = 13.0f;
   this->h = 8.0f;
   this->x = Window::F_Width / 2 - (this->w * Canvas::Pixel_Size);
-  this->y = Window::F_Height - (this->h * Canvas::Pixel_Size);
+  this->y = Battlefield::F_Height - (this->h * Canvas::Pixel_Size);
   this->speed = 10;
   this->direction = 0;
   this->colour = Colour::Red;
+  this->destroyed = false;
+  this->hitbox = {
+    this->x,
+    this->y,
+    this->w * Canvas::Pixel_Size,
+    this->h * Canvas::Pixel_Size
+  };
 
   this->sprite = {
     0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0,
@@ -81,4 +88,11 @@ void Player::move() {
   ) {
     this->x = new_x;
   }
+
+  this->update_hitbox();
 };
+
+void Player::update_hitbox() {
+  this->hitbox.x = this-> x;
+  this->hitbox.y = this->y;
+}

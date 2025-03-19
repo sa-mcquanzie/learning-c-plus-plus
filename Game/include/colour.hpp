@@ -14,6 +14,7 @@ namespace Colour {
   const Rgba Green = {0, 255, 0, 255};
   const Rgba Blue = {0, 0, 255, 255};
   const Rgba White = {255, 255, 255, 255};
+  const Rgba Black = {0, 0, 0, 255};
 
   const Rgba Colour16[16] = {
     {0, 0 ,0 ,0},               // 0: Black

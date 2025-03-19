@@ -4,7 +4,7 @@
 #include <SDL3/SDL_render.h>
 #include <SDL3/SDL.h>
 #include <SDL3/SDL_main.h>
-#include "game.h"
+#include "game.hpp"
 
 
 SDL_AppResult SDL_AppInit(void **game, int, char **) {

@@ -1,10 +1,13 @@
-#include "entity.h"
+#include "canvas.hpp"
+#include "config.hpp"
+#include "entity.hpp"
 
 
 Bullet::Bullet(
   SDL_Renderer * renderer,
   float x,
-  float y
+  float y,
+  float direction
 ): Entity(renderer, x, y)  {
   this->entity_type = EntityType::Bullet;
   this->renderer = renderer;
@@ -12,9 +15,15 @@ Bullet::Bullet(
   this->y = y;
   this->visible = true;
   this->colour = Colour::White;
-  this->w = 10.0f;
-  this->h = 10.0f;
-  this->hitbox = { this->x, this->y, this->w, this->h };
+  this->w = 3.0f;
+  this->h = 30.0f;
+  this->hitbox = {
+    this->x,
+    this->y,
+    this->w * Canvas::Pixel_Size,
+    this->h * Canvas::Pixel_Size
+  };
+  this->direction = direction;
 };
 
 void Bullet::show() {
@@ -31,11 +40,16 @@ void Bullet::show() {
 };
 
 void Bullet::move() {
-  this->y -= 20.0f;
+  this->y += 20.0f * this->direction;
 
   this->update_hitbox();
 
-  if (this->y < 0 - this->h) this->destroyed = true;
+  if (
+    this->y < 0 - this->h ||
+    this->y >= Battlefield::F_Height
+  ) {
+    this->destroyed = true;
+  }
 };
 
 void Bullet::update_hitbox() {

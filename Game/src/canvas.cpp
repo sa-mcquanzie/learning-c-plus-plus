@@ -1,5 +1,5 @@
-#include "canvas.h"
-#include "colour.h"
+#include "canvas.hpp"
+#include "colour.hpp"
 #include <SDL3/SDL_render.h>
 
 

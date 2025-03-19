@@ -1,5 +1,5 @@
 #pragma once
-#include "colour.h"
+#include "colour.hpp"
 #include <SDL3/SDL_rect.h>
 #include <SDL3/SDL_render.h>
 #include <SDL3_image/SDL_image.h>
@@ -13,10 +13,11 @@ enum struct EntityType {
   Player,
   Alien,
   Bullet,
-  Star
+  Star,
+  StatusBar
 };
 
-enum struct AlienTypes {
+enum AlienVariant {
   Crab,
   Squid,
   Octopus,
@@ -24,17 +25,23 @@ enum struct AlienTypes {
   Mystery
 };
 
+enum AlienPhase {
+  Strafing,
+  Advancing
+};
+
 extern const char * EntityTypes[5];
 extern const char * AlienTypes[3];
 
 class Entity {
   public:
-    static constexpr std::string types[5] = {
+    static constexpr std::string types[6] = {
       "Base",
       "Player",
       "Alien",
       "Bullet",
-      "Star"
+      "Star",
+      "StatusBar"
     };
 
     EntityType entity_type;
@@ -115,6 +122,7 @@ class Player : public Entity {
 
     void show() override;
     void move() override;
+    void update_hitbox();
 };
 
 class Bullet : public Entity {
@@ -122,10 +130,12 @@ class Bullet : public Entity {
     using Entity::Entity;
     SDL_FRect hitbox;
     Rgba colour;
+    float direction;
 
     Bullet(
       SDL_Renderer * renderer,
-      float x, float y
+      float x, float y,
+      float direction
     );
 
     Bullet(
@@ -161,6 +171,7 @@ class Star: public Entity {
 class Alien: public Entity {
   public:
     using Entity::Entity;
+    AlienVariant variant;
     float direction;
     float speed;
     SDL_FRect hitbox;
@@ -170,6 +181,13 @@ class Alien: public Entity {
     int sprite_total_frames;
     Uint64 last_animated;
     Uint64 animation_rate;
+    float x_min;
+    float x_max;
+    float y_max;
+    bool can_fire;
+    bool should_fire;
+    AlienPhase phase;
+
 
     static constexpr std::string types[5] = {
       "Crab",
@@ -189,6 +207,7 @@ class Alien: public Entity {
 
     Alien(
       SDL_Renderer * renderer,
+      AlienVariant variant,
       float x, float y
     );
 
@@ -203,4 +222,21 @@ class Alien: public Entity {
     void show() override;
     void move() override;
     void update_hitbox();
+};
+
+class StatusBar: public Entity {
+  public:
+    using Entity::Entity;
+    int score;
+    int ships;
+    SDL_FRect* rect;
+
+  StatusBar(SDL_Renderer * renderer);
+
+  ~StatusBar();
+
+  void show() override;
+  void move() override;
+  void update_score();
+  void update_ships();
 };

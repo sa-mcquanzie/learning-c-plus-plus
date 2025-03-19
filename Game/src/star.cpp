@@ -1,5 +1,5 @@
-#include "config.h"
-#include "entity.h"
+#include "config.hpp"
+#include "entity.hpp"
 #include <cmath>
 
 

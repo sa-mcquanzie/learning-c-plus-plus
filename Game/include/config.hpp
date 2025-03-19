@@ -3,11 +3,17 @@
 
 namespace Window {
   [[maybe_unused]] static const char * Title = "Mr Rectangle";
-  const int Width= 1600;
-  const int Height = 800;
+  const int Width = 1055;
+  const int Height = 1055;
   const float F_Width= float(Width);
   const float F_Height = float(Height);
-  const int Size = 150;
+}
+
+namespace Battlefield {
+  const int Width = Window::Width;
+  const int Height = Window::Height - 100;
+  const float F_Width= float(Width);
+  const float F_Height = float(Height);
 }
 
 namespace Animation {
